@@ -1,5 +1,5 @@
 //word or phrase to be solved
-var phrase = "test phrase";
+var phrase = "i love javascript";
 var letters;
 
 //splits phrase into an array
@@ -34,9 +34,10 @@ function createAlphabet(){
   for (var i = 65; i < 91; i++) {
     letter = String.fromCharCode(i);
     alphabet.push(letter);
-    var div = $("<div></div>").addClass("letter")
-    $(".alphabet").append(div)
-    $(div).html(letter)
+    var link = $("<a></a>").addClass("letter")
+    $(link).attr("href","#")
+    $(".alphabet").append(link)
+    $(link).html(letter)
   }
 }
 

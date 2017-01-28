@@ -1,12 +1,12 @@
 body {
-  margin: 0 auto;
+  margin: 0 20px;
   padding: 30px;
 }
 
 header {
-  background: lightgray;
-  margin-bottom: 20px;
-  padding: 10px;
+  background: rgba(156,205,251,0.5);
+  margin-bottom: 40px;
+  padding: 15px;
   border: 1px;
   border-radius: 15px;
 }
@@ -15,6 +15,13 @@ h1 {
   font-family: 'Amatic SC', cursive;
   font-size: 60px;
   font-weight: bold;
+}
+
+h2 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 30px;
 }
 
 img {
@@ -26,12 +33,20 @@ main {
   display: flex;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 35px;
+}
+
 #letter-board {
   height: 160px;
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
-  padding-left: 50px;
+  margin-top: 50px;
+  padding: 0 40px;
 }
 
 .blank-letter {
@@ -46,8 +61,7 @@ main {
   background: white;
   height: 40px;
   width: 35px;
-  margin: 7px;
-  font-size: 30px;
+  margin: 5px;
   text-align: center;
 }
 
@@ -68,11 +82,15 @@ main {
   height: 150px;
   /*background: gray;*/
   justify-content: center;
-  margin-top: 170px;
+  margin-top: 100px;
+  padding: 0 30px;
 }
 
 .score-board {
-  height: 200px;
+  margin-top: 20px;
+  height: 100px;
   width: 300px;
-  background: gray;
+  background: rgba(156,205,251,0.5);
+  border: 1px;
+  border-radius: 15px;
 }
