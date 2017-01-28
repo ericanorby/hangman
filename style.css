@@ -1,7 +1,6 @@
 body {
   margin: 0 auto;
   padding: 30px;
-  background-color: white;
 }
 
 header {
@@ -18,14 +17,13 @@ h1 {
   font-weight: bold;
 }
 
-.image {
-  background-image: url("images/hangman7.png");
-  background-size: cover;
+img {
   height: 300px;
   width: 300px;
-  display: inline-block;
-  float: left;
-  margin: 20px;
+}
+
+main {
+  display: flex;
 }
 
 #letter-board {
@@ -36,21 +34,21 @@ h1 {
   padding-left: 50px;
 }
 
-.background {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  border: 1px;
-  border-radius: 15px;
-}
-
 .blank-letter {
   background: white;
   border-bottom: 5px solid black;
   height: 40px;
   width: 35px;
   margin: 7px;
+}
+
+.letter {
+  background: white;
+  height: 40px;
+  width: 35px;
+  margin: 7px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .empty-value {
@@ -62,4 +60,19 @@ h1 {
 
 .word {
   display: flex;
+}
+
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  height: 150px;
+  /*background: gray;*/
+  justify-content: center;
+  margin-top: 170px;
+}
+
+.score-board {
+  height: 200px;
+  width: 300px;
+  background: gray;
 }
