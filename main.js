@@ -1,10 +1,11 @@
 //word or phrase to be solved
-var phrase = "I LOVE JAVASCRIPT";
+var phrase = "HELLO WORLD";
 var letters;
 
 //splits phrase into an array
 function createPuzzle(phrase){
   letters = phrase.split('');
+  letters.push(' ');
 }
 
 //create blank letters for each word
@@ -20,7 +21,8 @@ function createLetters(){
     } else {
       var space = $("<div></div>")
       $("#letter-board").append(space)
-      blank.addClass("empty-value");
+      blank.addClass("blank-letter")
+      blank.css("border","none")
       $(space).append(blank)
       var word = $("<div></div>").addClass("word")
       $("#letter-board").append(word)
@@ -41,25 +43,48 @@ function createAlphabet(){
     $(link).text(letter)
   }
 }
+
+function guessedLetter(){
+    //make the letter in the alphabet grayed out
+  $(this).css("color", "lightgray")
+  //if the letter clicked is included in the phrase:
+    //make the letter in the phrase appear
+  if (letters.indexOf($(this).text()) != -1) {
+    for (var i = 0; i < letters.length; i++) {
+      var chosenLetter = letters.indexOf($(this).text(), i)
+      $(".blank-letter").eq(chosenLetter).css("color","black")
+    }
+  }
+  //if the letter clicked is NOT included in the phrase:
+    //add next piece of the skeleton
+  else {
+    changeImage();
+  }
+}
+
 createPuzzle(phrase);
 createLetters();
 createAlphabet();
 
 //when a letter of the alphabet is clicked:
-$("a").click(grayedOut)
-  //make the letter in the alphabet grayed out
-function grayedOut(){
-  $(this).css("color", "lightgray")
-  for (var i = 0; i < letters.length; i++) {
-    if ($(this).text() == letters[i]) {
-      test();
-    }
-  }
+$("a").click(guessedLetter)
+
+var images = [];
+images[0] = "images/hangman1.png";
+images[1] = "images/hangman2.png";
+images[2] = "images/hangman3.png";
+images[3] = "images/hangman4.png";
+images[4] = "images/hangman5.png";
+images[5] = "images/hangman6.png";
+images[6] = "images/hangman7.png";
+
+var imageNumber = 0;
+
+function changeImage(){
+  imageNumber++
+  $("img").attr("src", images[imageNumber])
 }
-  //if the letter clicked is included in the phrase:
-    //make the letter in the phrase appear
-  //if the letter clicked is NOT included in the phrase:
-    //add next piece of the skeleton
+
 function test(){
   $("body").css("background","green")
 }

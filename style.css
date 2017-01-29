@@ -1,6 +1,7 @@
 body {
   margin: 0 20px;
   padding: 30px;
+  user-select: none;
 }
 
 header {
@@ -55,7 +56,19 @@ a {
   height: 40px;
   width: 35px;
   margin: 7px;
-  font-size: 30px;
+  font-size: 35px;
+  color: white;
+  text-align: center;
+}
+
+.show-letter {
+  background: white;
+  border-bottom: 5px solid black;
+  height: 40px;
+  width: 35px;
+  margin: 7px;
+  font-size: 35px;
+  color: black;
   text-align: center;
 }
 
