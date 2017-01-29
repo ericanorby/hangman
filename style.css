@@ -55,6 +55,8 @@ a {
   height: 40px;
   width: 35px;
   margin: 7px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .letter {
