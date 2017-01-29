@@ -2,6 +2,7 @@ body {
   margin: 0 20px;
   padding: 30px;
   user-select: none;
+  min-width: 950px;
 }
 
 header {
@@ -46,8 +47,6 @@ a {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
-  margin-top: 50px;
-  padding: 0 40px;
 }
 
 .blank-letter {
@@ -94,11 +93,9 @@ a {
 .alphabet {
   display: flex;
   flex-wrap: wrap;
-  height: 150px;
-  /*background: gray;*/
   justify-content: center;
-  margin-top: 100px;
-  padding: 0 30px;
+  margin-top: 70px;
+  max-width: 600px;
 }
 
 .score-board {
@@ -108,4 +105,16 @@ a {
   background: rgba(156,205,251,0.5);
   border: 1px;
   border-radius: 15px;
+}
+
+.notification {
+  height: 60px;
+  font-size: 60px;
+  font-family: 'Amatic SC', cursive;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.background {
+  padding-left: 40px;
 }

@@ -1,5 +1,5 @@
 //word or phrase to be solved
-var phrase = "HELLO WORLD";
+var phrase = "A COW JUMPED OVER THE MOON";
 var letters;
 
 //splits phrase into an array
@@ -45,8 +45,8 @@ function createAlphabet(){
 }
 
 function guessedLetter(){
-    //make the letter in the alphabet grayed out
-  $(this).css("color", "lightgray")
+  //make the letter in the alphabet grayed out
+  $(this).css("color", "rgb(239, 243, 249)")
   //if the letter clicked is included in the phrase:
     //make the letter in the phrase appear
   if (letters.indexOf($(this).text()) != -1) {
@@ -59,15 +59,25 @@ function guessedLetter(){
     //add next piece of the skeleton
   else {
     changeImage();
+    setTimeout(loseGame, 1000);
   }
+
 }
 
 createPuzzle(phrase);
 createLetters();
 createAlphabet();
 
+
+function loseGame(){
+  if (imageNumber == 6) {
+    imageNumber = 0;
+    $(".notification").text('YOU LOSE!')
+  }
+}
+
 //when a letter of the alphabet is clicked:
-$("a").click(guessedLetter)
+$(".letter").click(guessedLetter)
 
 var images = [];
 images[0] = "images/hangman1.png";
