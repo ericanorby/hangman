@@ -1,5 +1,7 @@
+$(document).ready(function(){
+
 //word or phrase to be solved
-var phrase = "harry potter and the sorcerers stone";
+var phrase = "i love javascript so much";
 var letters;
 
 //splits phrase into an array
@@ -90,7 +92,7 @@ function loseGame(){
 
 //if player wins, show notification
 function winGame(){
-
+  
 }
 
 //when a letter of the alphabet is clicked:
@@ -109,5 +111,25 @@ var imageNumber = 0;
 
 function changeImage(){
   imageNumber++
-  $("img").attr("src", images[imageNumber])
+  $(".hangman > img").attr("src", images[imageNumber])
 }
+
+//if "instructions" is hovered over, make panel appear
+$(".instructions").mouseenter(showPanel)
+$(".instructions").mouseleave(hidePanel)
+
+function hidePanel(){
+  $("#instructions-panel").animate({
+    height: "-=150px"
+  })
+  $("#instructions-panel").html("")
+}
+
+function showPanel(){
+  $("#instructions-panel").animate({
+    height: "+=150px"
+  })
+  $("#instructions-panel").html("<p>Guess a letter. If you guess incorrectly, your score will decrease and a piece of the skeleton will appear. If your score reaches zero, you lose!</p>")
+}
+
+});
