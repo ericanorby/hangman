@@ -10,7 +10,22 @@ header {
   margin-bottom: 40px;
   padding: 15px;
   border: 1px;
-  border-radius: 15px;
+  border-radius: 10px;
+}
+
+nav {
+  display: inline-block;
+  float: right;
+  font-family: 'Amatic SC', cursive;
+  padding: 15px;
+}
+
+nav > a {
+  margin: 20px;
+}
+
+nav > a:hover {
+  color: white;
 }
 
 footer {
@@ -18,13 +33,14 @@ footer {
   margin-top: 40px;
   padding: 15px;
   border: 1px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 h1 {
   font-family: 'Amatic SC', cursive;
   font-size: 60px;
   font-weight: bold;
+  display: inline-block;
 }
 
 h2 {
@@ -56,6 +72,16 @@ a {
   font-size: 35px;
 }
 
+#instructions-panel {
+  height: 200px;
+  width: 600px;
+  background-color: blue;
+  position: relative;
+  float: right;
+  margin-top: 10px;
+  margin-left: 390px;
+}
+
 #letter-board {
   height: 160px;
   display: flex;
@@ -69,7 +95,7 @@ a {
   width: 260px;
   background: rgb(229, 229, 222);
   border: 1px;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 20px;
 }
 
