@@ -1,13 +1,21 @@
 body {
-  margin: 0 20px;
+  margin: 0 10px;
   padding: 30px;
   user-select: none;
-  min-width: 950px;
+  min-width: 1000px;
 }
 
 header {
   background: rgba(156,205,251,0.5);
   margin-bottom: 40px;
+  padding: 15px;
+  border: 1px;
+  border-radius: 15px;
+}
+
+footer {
+  background: rgba(156,205,251,0.5);
+  margin-top: 40px;
   padding: 15px;
   border: 1px;
   border-radius: 15px;
@@ -23,7 +31,13 @@ h2 {
   font-family: 'Amatic SC', cursive;
   font-size: 40px;
   font-weight: bold;
-  padding: 30px;
+}
+
+h3 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: right;
 }
 
 img {
@@ -47,10 +61,19 @@ a {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
+  padding-left: 10px;
+}
+
+#score-board {
+  margin-top: 20px;
+  width: 260px;
+  background: rgb(229, 229, 222);
+  border: 1px;
+  border-radius: 15px;
+  padding: 20px;
 }
 
 .blank-letter {
-  background: white;
   border-bottom: 5px solid black;
   height: 40px;
   width: 35px;
@@ -58,10 +81,10 @@ a {
   font-size: 35px;
   color: white;
   text-align: center;
+  font-family: 'Underdog', cursive;
 }
 
 .show-letter {
-  background: white;
   border-bottom: 5px solid black;
   height: 40px;
   width: 35px;
@@ -72,7 +95,6 @@ a {
 }
 
 .letter {
-  background: white;
   height: 40px;
   width: 35px;
   margin: 5px;
@@ -80,7 +102,6 @@ a {
 }
 
 .empty-value {
-  background: white;
   height: 40px;
   width: 35px;
   margin: 7px;
@@ -94,17 +115,9 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 70px;
-  max-width: 600px;
-}
-
-.score-board {
-  margin-top: 20px;
-  height: 100px;
-  width: 300px;
-  background: rgba(156,205,251,0.5);
-  border: 1px;
-  border-radius: 15px;
+  margin-top: 80px;
+  width: 600px;
+  font-family: 'Underdog', cursive;
 }
 
 .notification {

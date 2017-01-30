@@ -1,10 +1,11 @@
 //word or phrase to be solved
-var phrase = "A COW JUMPED OVER THE MOON";
+var phrase = "harry potter and the sorcerers stone";
 var letters;
 
 //splits phrase into an array
 function createPuzzle(phrase){
-  letters = phrase.split('');
+
+  letters = phrase.toUpperCase().split('');
   letters.push(' ');
 }
 
@@ -45,6 +46,7 @@ function createAlphabet(){
 }
 
 function guessedLetter(){
+  event.preventDefault();
   //make the letter in the alphabet grayed out
   $(this).css("color", "rgb(239, 243, 249)")
   //if the letter clicked is included in the phrase:
@@ -59,21 +61,36 @@ function guessedLetter(){
     //add next piece of the skeleton
   else {
     changeImage();
-    setTimeout(loseGame, 1000);
+    decreaseScore();
+    setTimeout(loseGame, 800);
   }
-
 }
 
 createPuzzle(phrase);
 createLetters();
 createAlphabet();
 
+var score = 6;
 
+//if player guesses incorrectly, subtract from score
+function decreaseScore(){
+  if (score > 0) {
+    score--;
+    $("span").text(score)
+  }
+}
+
+//if player loses, show notification
 function loseGame(){
   if (imageNumber == 6) {
     imageNumber = 0;
     $(".notification").text('YOU LOSE!')
   }
+}
+
+//if player wins, show notification
+function winGame(){
+
 }
 
 //when a letter of the alphabet is clicked:
@@ -93,8 +110,4 @@ var imageNumber = 0;
 function changeImage(){
   imageNumber++
   $("img").attr("src", images[imageNumber])
-}
-
-function test(){
-  $("body").css("background","green")
 }
