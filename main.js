@@ -1,7 +1,8 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
 //word or phrase to be solved
-var phrase = "i love javascript so much";
+var phrase = "kitties are awesome";
+// var phrase = prompt("enter a word or phrase");
 var letters;
 
 //splits phrase into an array
@@ -29,6 +30,7 @@ function createLetters(){
       $(space).append(blank)
       var word = $("<div></div>").addClass("word")
       $("#letter-board").append(word)
+      lettersCompleted++
     }
   }
 }
@@ -47,6 +49,8 @@ function createAlphabet(){
   }
 }
 
+var lettersCompleted = 0;
+
 function guessedLetter(){
   event.preventDefault();
   //make the letter in the alphabet grayed out
@@ -57,7 +61,11 @@ function guessedLetter(){
     for (var i = 0; i < letters.length; i++) {
       var chosenLetter = letters.indexOf($(this).text(), i)
       $(".blank-letter").eq(chosenLetter).css("color","black")
+      if (letters[i] == $(this).text()) {
+        lettersCompleted++
+      }
     }
+    setTimeout(winGame, 800);
   }
   //if the letter clicked is NOT included in the phrase:
     //add next piece of the skeleton
@@ -92,7 +100,10 @@ function loseGame(){
 
 //if player wins, show notification
 function winGame(){
-  
+  if (lettersCompleted == letters.length){
+    $(".notification").text('YOU WIN!')
+    $(".notification").css("color","green")
+  }
 }
 
 //when a letter of the alphabet is clicked:
@@ -132,4 +143,4 @@ function showPanel(){
   $("#instructions-panel").html("<p>Guess a letter. If you guess incorrectly, your score will decrease and a piece of the skeleton will appear. If your score reaches zero, you lose!</p>")
 }
 
-});
+// });
