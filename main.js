@@ -155,49 +155,33 @@ function changeImage(){
   $(".hangman > img").attr("src", images[imageNumber])
 }
 
-//if "instructions" is clicked, make panel appear
-$(".instructions").one("click",showInstructions)
-//if "categories" is hovered over, make panel appear
-$(".categories").one("click", showCategories)
+$(".instructions").mouseenter(function(){
+  $("#instructions-panel").toggle()
+})
+$(".instructions").mouseleave(function(){
+  $("#instructions-panel").toggle()
+})
 
-function hideInstructions(){
-  event.preventDefault()
-  $("#instructions-panel").animate({
-    height: "-=150px"
-  })
-  $("#instructions-panel").empty()
-  $(".instructions").one("click", showInstructions)
-}
+$(".categories").mouseenter(function(){
+  $("#categories-panel").toggle()
+})
 
-function showInstructions(){
-  event.preventDefault()
-  $("#instructions-panel").animate({
-    height: "+=150px"
-  })
-  $("#instructions-panel").html("<p>Guess a letter. If you guess incorrectly, your score will decrease and a piece of the skeleton will appear. If your score reaches zero, you lose!</p>")
-  $(".instructions").one("click", hideInstructions)
-}
+$(".categories").mouseleave(function(){
+  $("#categories-panel").toggle()
+})
+// $("#categories-panel").mouseenter(function(){
+//   $("#categories-panel").show()
+// })
 
-function hideCategories(){
-  event.preventDefault()
-  $("#categories-panel").animate({
-    height: "-=200px"
-  })
-  // $("#categories-panel").css("display","none")
-  $("#categories-panel > a").css("display","none")
-  $(".categories").one("click", showCategories)
-}
+$("#categories-panel").mouseleave(function(){
+  $("#categories-panel").toggle()
+})
 
-function showCategories(){
-  event.preventDefault()
-  $("#categories-panel").animate({
-    height: "+=200px"
-  })
-  // $("#categories-panel").css("display","block")
-  $("#categories-panel > a").css("display","block")
-  // $("#categories-panel > a").attr("href","#")
-  $(".categories").one("click", hideCategories)
-}
+// //if "instructions" is clicked, make panel appear
+// $(".instructions").one("click",showInstructions)
+// //if "categories" is hovered over, make panel appear
+// $(".categories").one("click", showCategories)
+//
 
 //if a category is clicked, begin a new puzzle with a random phrase from chosen category
 $("#categories-panel > a").click(startGame)
@@ -213,18 +197,18 @@ function startGame(){
   phrase = categories[chosen][random]
   createArray(phrase);
   createLetters();
-  hideCategories();
-  $(".letter").css("color", "black")
-  $(".letter").css("pointer-events","auto")
 }
 
 //reset board and scores if new game is selected
 function reset(){
+  event.preventDefault()
   lettersCompleted = 0;
   imageNumber = 0;
   score = 6;
   x = 0;
   $("#score").text(score)
+  $(".letter").css("color", "black")
+  $(".letter").css("pointer-events","auto")
   $(".hangman > img").attr("src", images[imageNumber])
   $("#letter-board").empty()
 }

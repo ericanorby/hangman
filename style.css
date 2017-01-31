@@ -82,6 +82,10 @@ a {
   font-size: 35px;
 }
 
+nav > a {
+  padding-bottom: 25px;
+}
+
 #instructions-panel p {
   font-family: 'Amatic SC', cursive;
   font-size: 30px;
@@ -89,30 +93,33 @@ a {
 }
 
 #instructions-panel {
+  display: none;
   width: 500px;
+  height: 200px;
   background: white;
   position: relative;
   float: right;
-  margin-top: 12px;
-  margin-left: 1000px;
-  border: 2px;
-  border-radius: 8px;
+  margin: 15px 0 0 1000px;
+  border: 2px black solid;
+  /*border-radius: 8px;*/
 }
 
 #categories-panel {
+  display: none;
+  height: 200px;
   width: 150px;
   background: white;
   position: relative;
   float: right;
-  margin-left: 1000px;
-  border: 2px;
-  border-radius: 8px;
+  margin: 15px 0 0 1000px;
+  border: 2px black solid;
+  /*border-radius: 8px;*/
 }
 
 #categories-panel > a {
-  display: none;
   font-family: 'Amatic SC', cursive;
   font-size: 30px;
+  display: block;
   text-align: center;
   padding: 10px;
 }
