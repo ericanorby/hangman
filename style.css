@@ -114,11 +114,16 @@ p {
 }
 
 #categories-panel > a {
-  display: block;
+  display: none;
+  /*visibility: hidden;*/
   font-family: 'Amatic SC', cursive;
   font-size: 30px;
   text-align: center;
   padding: 10px;
+}
+
+#categories-panel > a:hover {
+  background: rgb(227, 252, 237);
 }
 
 #letter-board {
@@ -132,7 +137,7 @@ p {
 
 #score-board {
   margin-top: 20px;
-  width: 260px;
+  width: 255px;
   background: rgb(206, 206, 206);
   border: 2px solid black;
   border-radius: 8px;

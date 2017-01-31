@@ -6,17 +6,17 @@ var categories = {
   countries: ["guatemala","indonesia","australia","mozambique","sierra leone","switzerland","zimbabwe","ireland","germany","south korea"]
 }
 
-var random = Math.floor(Math.random() * 10);
-var phrase = categories.songs[random];
-
+var lettersCompleted = 0;
 
 //word or phrase to be solved
-
-// var phrase = prompt("enter a word or phrase");
+var random = Math.floor(Math.random() * 10);
+// var phrase = categories.songs[random];
+// var chosen;
+var phrase;
 var letters;
 
 //splits phrase into an array
-function createPuzzle(){
+function createArray(){
 
   letters = phrase.toUpperCase().split('');
   console.log(letters);
@@ -58,8 +58,6 @@ function createAlphabet(){
   }
 }
 
-var lettersCompleted = 0;
-
 function guessedLetter(){
   event.preventDefault();
   //make the letter in the alphabet grayed out
@@ -89,11 +87,10 @@ function guessedLetter(){
     decreaseScore();
     setTimeout(loseGame, 800);
   }
-
 }
 
-createPuzzle(phrase);
-createLetters();
+// createArray(phrase);
+
 createAlphabet();
 
 var score = 6;
@@ -170,7 +167,7 @@ function hideCategories(){
   $("#categories-panel").animate({
     height: "-=250px"
   })
-  $("#categories-panel").empty()
+  $("#categories-panel > a").css("display","none")
   $(".categories").one("click", showCategories)
 }
 
@@ -179,9 +176,33 @@ function showCategories(){
   $("#categories-panel").animate({
     height: "+=250px"
   })
-  $("#categories-panel").html("<a>songs</a><a>food</a><a>colors</a><a>countries</a>")
+  $("#categories-panel > a").css("display","block")
+  // $("#categories-panel > a").attr("href","#")
   $(".categories").one("click", hideCategories)
 }
+
+//if a category is clicked, begin a new puzzle with a random phrase from chosen category
+$("#categories-panel > a").click(startGame)
+
+function startGame(){
+  reset();
+  var chosen = $(this).text()
+  phrase = categories[chosen][random]  
+  createArray(phrase);
+  createLetters();
+  //collapse categories panel
+  hideCategories();
+}
+
+//reset board and scores if new game is selected
+function reset(){
+  lettersCompleted = 0;
+  imageNumber = 0;
+  score = 6;
+  $("#letter-board").empty()
+}
+
+
 
 
 // });
