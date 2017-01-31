@@ -15,6 +15,8 @@ var letters;
 var score = 6;
 var lettersCompleted = 0;
 var imageNumber = 0;
+var streak = 0;
+var cumulative = 0;
 
 var images = [];
 images[0] = "images/hangman1.png";
@@ -79,7 +81,7 @@ function guessedLetter(){
         lettersCompleted++
       }
     }
-    setTimeout(winGame, 800);
+    setTimeout(winGame, 500);
 
   }
   //if the letter clicked is NOT included in the phrase:
@@ -87,7 +89,7 @@ function guessedLetter(){
   else {
     changeImage();
     decreaseScore();
-    setTimeout(loseGame, 800);
+    setTimeout(loseGame, 500);
   }
 }
 
@@ -110,7 +112,10 @@ function loseGame(){
     $(".notification p").css({"color":"red",
                             "font-size":"50px"})
     setTimeout(playAgain, 1000)
-
+    streak = 0;
+    $("#streak").text(streak)
+    cumulative = 0;
+    $("#cumulative").text(cumulative)
     fillInPuzzle();
   }
 }
@@ -125,7 +130,6 @@ function fillInPuzzle(){
   }
 }
 
-
 //if player wins, show notification
 function winGame(){
   if (lettersCompleted == letters.length){
@@ -133,6 +137,10 @@ function winGame(){
     $(".notification p").css({"color":"green",
                             "font-size":"50px"})
     setTimeout(playAgain, 1000)
+    streak++
+    $("#streak").text(streak)
+    cumulative = cumulative + score;
+    $("#cumulative").text(cumulative)
   }
 }
 
@@ -189,7 +197,6 @@ function showCategories(){
   $("#categories-panel > a").css("display","block")
   // $("#categories-panel > a").attr("href","#")
   $(".categories").one("click", hideCategories)
-
 }
 
 //if a category is clicked, begin a new puzzle with a random phrase from chosen category
@@ -220,7 +227,6 @@ function reset(){
   $("#score").text(score)
   $(".hangman > img").attr("src", images[imageNumber])
   $("#letter-board").empty()
-
 }
 
 //when a letter of the alphabet is clicked:

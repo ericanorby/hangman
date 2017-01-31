@@ -16,12 +16,6 @@ header {
   border-radius: 8px;
 }
 
-header > img {
-  height: 50px;
-  width: 50px;
-  /*margin-left: 15px;*/
-}
-
 nav {
   display: inline;
   float: right;
