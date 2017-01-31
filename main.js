@@ -28,7 +28,6 @@ images[6] = "images/hangman7.png";
 //splits phrase into an array
 function createArray(){
   letters = phrase.toUpperCase().split('');
-  console.log(letters);
 }
 
 //create blank letters for each word
@@ -38,7 +37,6 @@ function createLetters(){
   for (var i = 0; i < letters.length; i++){
     var blank = $("<div></div>").addClass("blank-letter")
     if (letters[i] != ' ') {
-      blank.html(letters[i])
       $(word).append(blank)
     } else {
       var space = $("<div></div>")
@@ -70,15 +68,15 @@ function createAlphabet(){
 function guessedLetter(){
   event.preventDefault();
   //make the letter in the alphabet grayed out
+  console.log($(this))
   $(this).css("color", "lightgray")
-  $(this).removeAttr("href")
   $(this).css("pointer-events","none")
   //if the letter clicked is included in the phrase:
     //make the letter in the phrase appear
   if (letters.indexOf($(this).text()) !== -1) {
     for (var i = 0; i <= letters.length; i++) {
       if (letters[i] == $(this).text()) {
-        $(".blank-letter").eq(i).css("color", "black")
+        $(".blank-letter").eq(i).html(letters[i])
         lettersCompleted++
       }
     }
@@ -108,23 +106,39 @@ function decreaseScore(){
 function loseGame(){
   if (imageNumber == 6) {
     imageNumber = 0;
+    $(".letter").css("pointer-events","none")
     $(".notification").html("<p>YOU LOSE!</p>")
     $(".notification p").css({"color":"red",
-                            "font-size":"60px"})
+                            "font-size":"50px"})
+    setTimeout(playAgain, 1000)
+    fillInPuzzle();
   }
 }
+
+var i = 0;
+function fillInPuzzle(){
+  if (i < letters.length) {
+    $(".blank-letter").eq(i).html(letters[i])
+    setTimeout(fillInPuzzle, 80);
+    i++
+  }
+}
+
 
 //if player wins, show notification
 function winGame(){
   if (lettersCompleted == letters.length){
     $(".notification").html("<p>YOU WIN!</p>")
     $(".notification p").css({"color":"green",
-                            "font-size":"60px"})
+                            "font-size":"50px"})
+    setTimeout(playAgain, 1000)
   }
 }
 
-//when a letter of the alphabet is clicked:
-$(".letter").click(guessedLetter)
+//ask if user wants to play again
+function playAgain(){
+  $(".notification").append("<p>play again?</p>")
+}
 
 //cycles through images when player guesses a wrong letter
 function changeImage(){
@@ -174,6 +188,7 @@ function showCategories(){
   $("#categories-panel > a").css("display","block")
   // $("#categories-panel > a").attr("href","#")
   $(".categories").one("click", hideCategories)
+
 }
 
 //if a category is clicked, begin a new puzzle with a random phrase from chosen category
@@ -191,6 +206,8 @@ function startGame(){
   createArray(phrase);
   createLetters();
   hideCategories();
+  $(".letter").css("color", "black")
+  $(".letter").css("pointer-events","auto")
 }
 
 //reset board and scores if new game is selected
@@ -201,6 +218,10 @@ function reset(){
   $("span").text(score)
   $(".hangman > img").attr("src", images[imageNumber])
   $("#letter-board").empty()
+
 }
+
+//when a letter of the alphabet is clicked:
+$(".letter").click(guessedLetter)
 
 // });

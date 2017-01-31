@@ -34,7 +34,7 @@ nav > a {
 }
 
 nav > a:hover {
-  color: white;
+  color: rgb(227, 252, 237);
 }
 
 footer {
@@ -107,7 +107,6 @@ a {
   background: white;
   position: relative;
   float: right;
-  /*margin-top: 10px;*/
   margin-left: 1000px;
   border: 2px;
   border-radius: 8px;
@@ -115,7 +114,6 @@ a {
 
 #categories-panel > a {
   display: none;
-  /*visibility: hidden;*/
   font-family: 'Amatic SC', cursive;
   font-size: 30px;
   text-align: center;
@@ -127,7 +125,7 @@ a {
 }
 
 #letter-board {
-  height: 160px;
+  height: 200px;
   width: 700px;
   display: flex;
   align-items: flex-end;
@@ -149,7 +147,6 @@ a {
 }
 
 .blank-letter {
-  color: rgb(244, 247, 252);
   border-bottom: 5px solid black;
   height: 40px;
   width: 35px;
@@ -157,16 +154,6 @@ a {
   font-size: 35px;
   text-align: center;
   font-family: 'Underdog', cursive;
-}
-
-.show-letter {
-  border-bottom: 5px solid black;
-  height: 40px;
-  width: 35px;
-  margin: 7px;
-  font-size: 35px;
-  color: black;
-  text-align: center;
 }
 
 .letter {
@@ -191,18 +178,21 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 80px;
+  /*height: 50px;*/
   width: 600px;
   font-family: 'Underdog', cursive;
 }
 
-.notification p {
-  height: 60px;
-  font-size: 30px;
-  font-family: 'Amatic SC', cursive;
-  margin-bottom: 20px;
-  padding-left: 10px;
+.notification {
+  height: 40px;
 }
 
+.notification p {
+  font-size: 30px;
+  font-family: 'Amatic SC', cursive;
+  padding-left: 10px;
+  display: inline;
+}
 
 .background {
   padding-left: 40px;
