@@ -1,4 +1,7 @@
 // $(document).ready(function(){
+
+//object of categories that player gets to choose from
+
 var categories = {
   songs: ["twinkle twinkle little star","what a wonderful world","smells like teen spirit","all you need is love","rolling in the deep","hotel california","cry me a river","stairway to heaven","wonderwall","somewhere over the rainbow"],
   food: ["chicken pot pie","cheeseburger","cheese pizza","meatball sub","fettucine alfredo","taco salad","potato casserole","omelette","chicken noodle soup","coconut shrimp"],
@@ -6,21 +9,26 @@ var categories = {
   countries: ["guatemala","indonesia","australia","mozambique","sierra leone","switzerland","zimbabwe","ireland","germany","south korea"]
 }
 
-var lettersCompleted = 0;
-
-//word or phrase to be solved
-var random = Math.floor(Math.random() * 10);
-// var phrase = categories.songs[random];
-// var chosen;
+var chosen;
 var phrase;
 var letters;
+var score = 6;
+var lettersCompleted = 0;
+var imageNumber = 0;
+
+var images = [];
+images[0] = "images/hangman1.png";
+images[1] = "images/hangman2.png";
+images[2] = "images/hangman3.png";
+images[3] = "images/hangman4.png";
+images[4] = "images/hangman5.png";
+images[5] = "images/hangman6.png";
+images[6] = "images/hangman7.png";
 
 //splits phrase into an array
 function createArray(){
-
   letters = phrase.toUpperCase().split('');
   console.log(letters);
-  letters.push(' ');
 }
 
 //create blank letters for each word
@@ -58,6 +66,7 @@ function createAlphabet(){
   }
 }
 
+//when a letter is clicked on
 function guessedLetter(){
   event.preventDefault();
   //make the letter in the alphabet grayed out
@@ -68,12 +77,8 @@ function guessedLetter(){
     //make the letter in the phrase appear
   if (letters.indexOf($(this).text()) !== -1) {
     for (var i = 0; i <= letters.length; i++) {
-      var chosenLetter = letters.indexOf($(this).text(), i)
-      $(".blank-letter").eq(chosenLetter).css("color","black")
-      // console.log('chosen Letter ---' + chosenLetter)
-      // console.log($(".blank-letter").eq(chosenLetter));
-      // console.log('these letters---' + letters[i])
       if (letters[i] == $(this).text()) {
+        $(".blank-letter").eq(i).css("color", "black")
         lettersCompleted++
       }
     }
@@ -89,11 +94,7 @@ function guessedLetter(){
   }
 }
 
-// createArray(phrase);
-
 createAlphabet();
-
-var score = 6;
 
 //if player guesses incorrectly, subtract from score
 function decreaseScore(){
@@ -107,33 +108,25 @@ function decreaseScore(){
 function loseGame(){
   if (imageNumber == 6) {
     imageNumber = 0;
-    $(".notification").text('YOU LOSE!')
-    $(".notification").css("color","red")
+    $(".notification").html("<p>YOU LOSE!</p>")
+    $(".notification p").css({"color":"red",
+                            "font-size":"60px"})
   }
 }
 
 //if player wins, show notification
 function winGame(){
   if (lettersCompleted == letters.length){
-    $(".notification").text('YOU WIN!')
-    $(".notification").css("color","green")
+    $(".notification").html("<p>YOU WIN!</p>")
+    $(".notification p").css({"color":"green",
+                            "font-size":"60px"})
   }
 }
 
 //when a letter of the alphabet is clicked:
 $(".letter").click(guessedLetter)
 
-var images = [];
-images[0] = "images/hangman1.png";
-images[1] = "images/hangman2.png";
-images[2] = "images/hangman3.png";
-images[3] = "images/hangman4.png";
-images[4] = "images/hangman5.png";
-images[5] = "images/hangman6.png";
-images[6] = "images/hangman7.png";
-
-var imageNumber = 0;
-
+//cycles through images when player guesses a wrong letter
 function changeImage(){
   imageNumber++
   $(".hangman > img").attr("src", images[imageNumber])
@@ -165,8 +158,9 @@ function showInstructions(){
 function hideCategories(){
   event.preventDefault()
   $("#categories-panel").animate({
-    height: "-=250px"
+    height: "-=210px"
   })
+  // $("#categories-panel").css("display","none")
   $("#categories-panel > a").css("display","none")
   $(".categories").one("click", showCategories)
 }
@@ -174,8 +168,9 @@ function hideCategories(){
 function showCategories(){
   event.preventDefault()
   $("#categories-panel").animate({
-    height: "+=250px"
+    height: "+=210px"
   })
+  // $("#categories-panel").css("display","block")
   $("#categories-panel > a").css("display","block")
   // $("#categories-panel > a").attr("href","#")
   $(".categories").one("click", hideCategories)
@@ -186,11 +181,15 @@ $("#categories-panel > a").click(startGame)
 
 function startGame(){
   reset();
-  var chosen = $(this).text()
-  phrase = categories[chosen][random]  
+  //create variable to pick a random number from 0-9
+  var random = Math.floor(Math.random() * 10);
+  // console.log(`${score} score on reset`);
+  // above: ES6. same as console.log(score + " score on reset"));
+  $(".notification").html("<p></p>")
+  chosen = $(this).text()
+  phrase = categories[chosen][random]
   createArray(phrase);
   createLetters();
-  //collapse categories panel
   hideCategories();
 }
 
@@ -199,10 +198,9 @@ function reset(){
   lettersCompleted = 0;
   imageNumber = 0;
   score = 6;
+  $("span").text(score)
+  $(".hangman > img").attr("src", images[imageNumber])
   $("#letter-board").empty()
 }
-
-
-
 
 // });

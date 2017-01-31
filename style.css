@@ -59,7 +59,7 @@ h2 {
 
 h3 {
   font-family: 'Amatic SC', cursive;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   text-align: right;
 }
@@ -80,7 +80,7 @@ a {
   font-size: 35px;
 }
 
-p {
+#instructions-panel p {
   font-family: 'Amatic SC', cursive;
   font-size: 30px;
   margin: 30px;
@@ -96,9 +96,9 @@ p {
   background: white;
   position: relative;
   float: right;
-  margin-top: 20px;
+  margin-top: 12px;
   margin-left: 1000px;
-  border: 2px black solid;
+  border: 2px;
   border-radius: 8px;
 }
 
@@ -107,9 +107,9 @@ p {
   background: white;
   position: relative;
   float: right;
-  margin-top: 8px;
+  /*margin-top: 10px;*/
   margin-left: 1000px;
-  border: 2px black solid;
+  border: 2px;
   border-radius: 8px;
 }
 
@@ -195,13 +195,14 @@ p {
   font-family: 'Underdog', cursive;
 }
 
-.notification {
+.notification p {
   height: 60px;
-  font-size: 60px;
+  font-size: 30px;
   font-family: 'Amatic SC', cursive;
   margin-bottom: 20px;
   padding-left: 10px;
 }
+
 
 .background {
   padding-left: 40px;
