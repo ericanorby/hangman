@@ -103,7 +103,7 @@ function decreaseScore(){
 
 //if player loses, show notification
 function loseGame(){
-  if (imageNumber == 6) {
+  if (imageNumber >= 6) {
     imageNumber = 0;
     $(".letter").css("pointer-events","none")
     $(".notification").html("<p>YOU LOSE!</p>")
@@ -173,7 +173,7 @@ function showInstructions(){
 function hideCategories(){
   event.preventDefault()
   $("#categories-panel").animate({
-    height: "-=210px"
+    height: "-=200px"
   })
   // $("#categories-panel").css("display","none")
   $("#categories-panel > a").css("display","none")
@@ -183,7 +183,7 @@ function hideCategories(){
 function showCategories(){
   event.preventDefault()
   $("#categories-panel").animate({
-    height: "+=210px"
+    height: "+=200px"
   })
   // $("#categories-panel").css("display","block")
   $("#categories-panel > a").css("display","block")

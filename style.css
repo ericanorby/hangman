@@ -128,7 +128,7 @@ a {
 }
 
 #letter-board {
-  height: 200px;
+  /*height: 240px;*/
   width: 650px;
   display: flex;
   align-items: flex-end;
@@ -137,7 +137,7 @@ a {
 }
 
 #score-board {
-  margin-top: 30px;
+  margin-top: 20px;
   height: 50px;
   width: 30%;
   float: left;
@@ -149,7 +149,7 @@ a {
 }
 
 #cumulative-score {
-  margin-top: 30px;
+  margin-top: 20px;
   height: 50px;
   width: 50%;
   float: right;
@@ -191,23 +191,25 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 80px;
-  /*height: 50px;*/
+  margin-top: 60px;
   width: 600px;
   font-family: 'Underdog', cursive;
 }
 
 .notification {
-  height: 40px;
+  height: 50px;
 }
 
 .notification p {
   font-size: 30px;
   font-family: 'Amatic SC', cursive;
-  padding-left: 10px;
+  padding: 10px;
   display: inline;
 }
 
 .background {
   padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
