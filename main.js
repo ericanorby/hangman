@@ -68,7 +68,6 @@ function createAlphabet(){
 function guessedLetter(){
   event.preventDefault();
   //make the letter in the alphabet grayed out
-  console.log($(this))
   $(this).css("color", "lightgray")
   $(this).css("pointer-events","none")
   //if the letter clicked is included in the phrase:
@@ -98,7 +97,7 @@ createAlphabet();
 function decreaseScore(){
   if (score > 0) {
     score--;
-    $("span").text(score)
+    $("#score").text(score)
   }
 }
 
@@ -111,16 +110,18 @@ function loseGame(){
     $(".notification p").css({"color":"red",
                             "font-size":"50px"})
     setTimeout(playAgain, 1000)
+
     fillInPuzzle();
   }
 }
 
-var i = 0;
+var x = 0;
+
 function fillInPuzzle(){
-  if (i < letters.length) {
-    $(".blank-letter").eq(i).html(letters[i])
+  if (x < letters.length) {
+    $(".blank-letter").eq(x).html(letters[x])
     setTimeout(fillInPuzzle, 80);
-    i++
+    x++
   }
 }
 
@@ -215,7 +216,8 @@ function reset(){
   lettersCompleted = 0;
   imageNumber = 0;
   score = 6;
-  $("span").text(score)
+  x = 0;
+  $("#score").text(score)
   $(".hangman > img").attr("src", images[imageNumber])
   $("#letter-board").empty()
 
