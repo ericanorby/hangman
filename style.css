@@ -2,14 +2,16 @@ body {
   margin: 0 auto;
   padding: 30px;
   user-select: none;
-  min-width: 1000px;
+  /*min-width: 500px;*/
+  background: rgb(244, 247, 252);
 }
 
 header {
-  background: rgba(156,205,251,0.5);
+  /*background: rgba(156,205,251,0.5);*/
+  background: rgb(206, 206, 206);
   margin-bottom: 40px;
   padding: 15px;
-  border: 1px;
+  border: 2px solid black;
   border-radius: 8px;
 }
 
@@ -20,8 +22,9 @@ header > img {
 }
 
 nav {
-  display: inline-block;
+  display: inline;
   float: right;
+  text-align: right;
   font-family: 'Amatic SC', cursive;
   padding: 15px;
 }
@@ -35,11 +38,9 @@ nav > a:hover {
 }
 
 footer {
-  /*background: rgba(156,205,251,0.5);*/
   margin-top: 40px;
   padding: 15px;
-  border-top: 5px rgba(156,205,251,0.5) solid;
-  /*border-radius: 8px;*/
+  border-top: 5px black solid;
 }
 
 h1 {
@@ -85,20 +86,44 @@ p {
   margin: 30px;
 }
 
-#instructions-panel {
-  /*visibility: hidden;*/
-  /*height: 200px;*/
-  width: 600px;
-  background: rgb(229, 229, 222);
-  position: relative;
-  float: right;
-  margin-top: 10px;
-  margin-left: 390px;
+.panels {
+  /*display: flex;
+  flex-direction: column;*/
 }
 
+#instructions-panel {
+  width: 500px;
+  background: white;
+  position: relative;
+  float: right;
+  margin-top: 20px;
+  margin-left: 1000px;
+  border: 2px black solid;
+  border-radius: 8px;
+}
+
+#categories-panel {
+  width: 150px;
+  background: white;
+  position: relative;
+  float: right;
+  margin-top: 8px;
+  margin-left: 1000px;
+  border: 2px black solid;
+  border-radius: 8px;
+}
+
+#categories-panel > a {
+  display: block;
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
 
 #letter-board {
   height: 160px;
+  width: 700px;
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
@@ -108,8 +133,8 @@ p {
 #score-board {
   margin-top: 20px;
   width: 260px;
-  background: rgb(229, 229, 222);
-  border: 1px;
+  background: rgb(206, 206, 206);
+  border: 2px solid black;
   border-radius: 8px;
   padding: 20px;
 }
@@ -119,12 +144,12 @@ p {
 }
 
 .blank-letter {
+  color: rgb(244, 247, 252);
   border-bottom: 5px solid black;
   height: 40px;
   width: 35px;
   margin: 7px;
   font-size: 35px;
-  color: white;
   text-align: center;
   font-family: 'Underdog', cursive;
 }
@@ -171,7 +196,6 @@ p {
   font-family: 'Amatic SC', cursive;
   margin-bottom: 20px;
   padding-left: 10px;
-  color: red;
 }
 
 .background {
