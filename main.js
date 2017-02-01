@@ -1,7 +1,6 @@
-// $(document).ready(function(){
+$(document).ready(function(){
 
 //object of categories that player gets to choose from
-
 var categories = {
   songs: ["twinkle twinkle little star","what a wonderful world","smells like teen spirit","all you need is love","rolling in the deep","hotel california","cry me a river","stairway to heaven","wonderwall","somewhere over the rainbow"],
   food: ["chicken pot pie","cheeseburger","cheese pizza","meatball sub","fettucine alfredo","taco salad","potato casserole","omelette","chicken noodle soup","coconut shrimp"],
@@ -17,7 +16,9 @@ var lettersCompleted = 0;
 var imageNumber = 0;
 var streak = 0;
 var cumulative = 0;
+var x = 0;
 
+//assign images into array
 var images = [];
 images[0] = "images/hangman1.png";
 images[1] = "images/hangman2.png";
@@ -32,6 +33,9 @@ function createArray(){
   letters = phrase.toUpperCase().split('');
 }
 
+//creates alphabet on bottom of page
+createAlphabet();
+
 //create blank letters for each word
 function createLetters(){
   var word = $("<div></div>").addClass("word")
@@ -45,6 +49,7 @@ function createLetters(){
       $("#letter-board").append(space)
       blank.css("border","none")
       $(space).append(blank)
+      //create new word div for next word
       var word = $("<div></div>").addClass("word")
       $("#letter-board").append(word)
       lettersCompleted++
@@ -82,7 +87,6 @@ function guessedLetter(){
       }
     }
     setTimeout(winGame, 500);
-
   }
   //if the letter clicked is NOT included in the phrase:
     //add next piece of the skeleton
@@ -92,8 +96,6 @@ function guessedLetter(){
     setTimeout(loseGame, 500);
   }
 }
-
-createAlphabet();
 
 //if player guesses incorrectly, subtract from score
 function decreaseScore(){
@@ -117,11 +119,11 @@ function loseGame(){
     cumulative = 0;
     $("#cumulative").text(cumulative)
     fillInPuzzle();
+    $(".categories").css("pointer-events","auto")
   }
 }
 
-var x = 0;
-
+//fill in remaining puzzle letters if player loses
 function fillInPuzzle(){
   if (x < letters.length) {
     $(".blank-letter").eq(x).html(letters[x])
@@ -141,12 +143,13 @@ function winGame(){
     $("#streak").text(streak)
     cumulative = cumulative + score;
     $("#cumulative").text(cumulative)
+    $(".categories").css("pointer-events","auto")
   }
 }
 
 //ask if user wants to play again
 function playAgain(){
-  $(".notification").append("<p>play again?</p>")
+  $(".notification").append("<p>play again? choose a category.</p>")
 }
 
 //cycles through images when player guesses a wrong letter
@@ -154,6 +157,8 @@ function changeImage(){
   imageNumber++
   $(".hangman > img").attr("src", images[imageNumber])
 }
+
+//lots of toggle events!
 
 $(".instructions").mouseenter(function(){
   $("#instructions-panel").toggle()
@@ -169,19 +174,10 @@ $(".categories").mouseenter(function(){
 $(".categories").mouseleave(function(){
   $("#categories-panel").toggle()
 })
-// $("#categories-panel").mouseenter(function(){
-//   $("#categories-panel").show()
-// })
 
 $("#categories-panel").mouseleave(function(){
   $("#categories-panel").toggle()
 })
-
-// //if "instructions" is clicked, make panel appear
-// $(".instructions").one("click",showInstructions)
-// //if "categories" is hovered over, make panel appear
-// $(".categories").one("click", showCategories)
-//
 
 //if a category is clicked, begin a new puzzle with a random phrase from chosen category
 $("#categories-panel > a").click(startGame)
@@ -192,11 +188,14 @@ function startGame(){
   var random = Math.floor(Math.random() * 10);
   // console.log(`${score} score on reset`);
   // above: ES6. same as console.log(score + " score on reset"));
-  $(".notification").html("<p></p>")
-  chosen = $(this).text()
+  chosen = $(this).html()
+  // $(".notification p").html("")
+  var addCategory = $(".notification").append("<p></p>")
+  $(".notification p").text(chosen)
   phrase = categories[chosen][random]
   createArray(phrase);
   createLetters();
+  $(".categories").css("pointer-events","none")
 }
 
 //reset board and scores if new game is selected
@@ -211,9 +210,10 @@ function reset(){
   $(".letter").css("pointer-events","auto")
   $(".hangman > img").attr("src", images[imageNumber])
   $("#letter-board").empty()
+  $(".notification > p").remove()
 }
 
 //when a letter of the alphabet is clicked:
 $(".letter").click(guessedLetter)
 
-// });
+});

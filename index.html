@@ -6,50 +6,52 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Underdog" rel="stylesheet">
     <title>Hangskeleton</title>
   </head>
-  <body>
-      <header>
-        <h1>Hangskeleton</h1>
-        <nav>
-          <a href="#" class="instructions">Instructions</a>
-          <a href="#" class="categories">Categories</a>
-        </nav>
-        <div class="panels">
-          <div id="instructions-panel">
-            <p>Guess a letter. If you guess incorrectly, your score will decrease and a piece of the skeleton will appear. If your score reaches zero, you lose!</p>
+  <div class="container">
+    <body>
+        <header>
+          <h1>Hangskeleton</h1>
+          <nav>
+            <a href="#" class="instructions">Instructions</a>
+            <a href="#" class="categories">Categories</a>
+          </nav>
+          <div class="panels">
+            <div id="instructions-panel">
+              <p>Guess a letter. If you guess incorrectly, your score will decrease and a piece of the skeleton will appear. If your score reaches zero, you lose!</p>
+            </div>
+            <div id="categories-panel">
+              <a href="#">songs</a>
+              <a href="#">food</a>
+              <a href="#">colors</a>
+              <a href="#">countries</a>
+            </div>
           </div>
-          <div id="categories-panel">
-            <a href="#">songs</a>
-            <a href="#">food</a>
-            <a href="#">colors</a>
-            <a href="#">countries</a>
+        </header>
+        <main>
+          <div class="hangman">
+            <img src="images/hangman1.png">
+            <div id="score-board">
+              <h2>Score:&nbsp;<span id="score">6</span></h2>
+            </div>
+            <div id="cumulative-score">
+              <h2>Win Streak:&nbsp;<span id="streak">0</span></h2>
+              <h2>Cumulative score:&nbsp;<span id="cumulative">0</span></h2>
+            </div>
           </div>
-        </div>
-      </header>
-      <main>
-        <div class="hangman">
-        <img src="images/hangman1.png">
-          <div id="score-board">
-            <h2>Score:&nbsp;<span id="score">6</span></h2>
+          <div class="background">
+            <div class="notification">
+              <p>Choose a category to begin.</p>
+            </div>
+            <div id="letter-board">
+            </div>
+            <div class="alphabet">
+            </div>
           </div>
-          <div id="cumulative-score">
-            <h2>Win Streak:&nbsp;<span id="streak">0</span></h2>
-            <h2>Cumulative score:&nbsp;<span id="cumulative">0</span></h2>
-          </div>
-        </div>
-        <div class="background">
-          <div class="notification">
-            <p>Choose a category to begin.</p>
-          </div>
-          <div id="letter-board">
-          </div>
-          <div class="alphabet">
-          </div>
-        </div>
-      </main>
-      <footer>
-        <h3>Created by Erica Norby</h3>
-      </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="main.js"></script>
-  </body>
+        </main>
+        <footer>
+          <h3>Created by Erica Norby</h3>
+        </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="main.js"></script>
+    </body>
+  </div>
 </html>
