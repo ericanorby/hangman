@@ -135,7 +135,7 @@ nav > a {
 }
 
 #letter-board {
-  width: 650px;
+  width: 630px;
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
