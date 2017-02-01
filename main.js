@@ -2,10 +2,10 @@ $(document).ready(function(){
 
 //object of categories that player gets to choose from
 var categories = {
-  songs: ["twinkle twinkle little star","what a wonderful world","smells like teen spirit","all you need is love","rolling in the deep","hotel california","cry me a river","stairway to heaven","wonderwall","somewhere over the rainbow"],
-  food: ["chicken pot pie","cheeseburger","cheese pizza","meatball sub","fettucine alfredo","taco salad","potato casserole","omelette","chicken noodle soup","coconut shrimp"],
-  colors: ["chartreuse","camouflage green","burnt sienna","lavender","cerulean","crimson","sky blue","fuchsia","magenta","turquoise"],
-  countries: ["guatemala","indonesia","australia","mozambique","sierra leone","switzerland","zimbabwe","ireland","germany","south korea"]
+  songs: ["twinkle twinkle little star","what a wonderful world","smells like teen spirit","all you need is love","rolling in the deep","hotel california","cry me a river","stairway to heaven","wonderwall","somewhere over the rainbow","hit me baby one more time","call me maybe","who let the dogs out","gold digger","macarena"],
+  food: ["chicken pot pie","cheeseburger","cheese pizza","meatball sub","fettucine alfredo","taco salad","potato casserole","omelette","chicken noodle soup","coconut shrimp","ice cream","buttered popcorn","french fries","maple syrup","baby back ribs"],
+  colors: ["chartreuse","camouflage green","burnt sienna","lavender","cerulean","crimson","sky blue","fuchsia","magenta","turquoise","granny smith apple","indigo","cobalt blue","orchid","maroon"],
+  countries: ["guatemala","indonesia","australia","mozambique","sierra leone","switzerland","zimbabwe","ireland","germany","south korea","united states","botswana","denmark","new zealand","portugal"]
 }
 
 var chosen;
@@ -185,7 +185,7 @@ $("#categories-panel > a").click(startGame)
 function startGame(){
   reset();
   //create variable to pick a random number from 0-9
-  var random = Math.floor(Math.random() * 10);
+  var random = Math.floor(Math.random() * 15);
   // console.log(`${score} score on reset`);
   // above: ES6. same as console.log(score + " score on reset"));
   chosen = $(this).html()
