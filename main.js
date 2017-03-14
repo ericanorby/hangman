@@ -65,7 +65,7 @@ function createAlphabet(){
     letter = String.fromCharCode(i);
     alphabet.push(letter);
     var link = $("<a></a>").addClass("letter")
-    $(link).attr("href","#")
+    link.css("pointer-events", "none")
     $(".alphabet").append(link)
     $(link).text(letter)
   }
@@ -76,7 +76,7 @@ function guessedLetter(){
   event.preventDefault();
   //make the letter in the alphabet grayed out
   $(this).css("color", "lightgray")
-  $(this).css("pointer-events","none")
+  $(this).css("pointer-events", "none")
   //if the letter clicked is included in the phrase:
     //make the letter in the phrase appear
   if (letters.indexOf($(this).text()) !== -1) {
@@ -143,7 +143,8 @@ function winGame(){
     $("#streak").text(streak)
     cumulative = cumulative + score;
     $("#cumulative").text(cumulative)
-    $(".categories").css("pointer-events","auto")
+    $(".alphabet a").css("pointer-events", "none")
+    $(".categories").css("pointer-events", "auto")
   }
 }
 
@@ -186,10 +187,7 @@ function startGame(){
   reset();
   //create variable to pick a random number from 0-9
   var random = Math.floor(Math.random() * 10);
-  // console.log(`${score} score on reset`);
-  // above: ES6. same as console.log(score + " score on reset"));
   chosen = $(this).html()
-  // $(".notification p").html("")
   var addCategory = $(".notification").append("<p></p>")
   $(".notification p").text(chosen)
   phrase = categories[chosen][random]

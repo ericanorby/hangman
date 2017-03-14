@@ -1,20 +1,23 @@
+html {
+  /*background: rgb(150, 150, 152);*/
+}
+
 body {
   margin: 0 auto;
-  width: 1000px;
-  padding: 30px;
   user-select: none;
 }
 
 .container {
-  background: rgb(239, 240, 249);
+  background: white;
+  /*border: 3px solid black;*/
+  /*border-radius: 5px;*/
 }
 
 header {
   padding: 15px;
-  background: rgb(110, 110, 130);
-  border-bottom: 5px rgb(62, 63, 73) solid;
-  border-radius: 10px;
-  margin-bottom: 30px;
+  background: rgb(59, 38, 49);
+  margin-bottom: 60px;
+  border-bottom: 1px solid rgb(190, 190, 190);
   color: white;
 }
 
@@ -27,21 +30,16 @@ nav {
 }
 
 nav > a {
-  margin: 20px;
-  color: lightgray;
-}
-
-nav > a:hover {
-  color: rgb(227, 252, 237);
+  padding: 10px 0;
+  margin: 0 5px 0 30px;
+  color: white;
 }
 
 footer {
-  margin-top: 30px;
-  padding: 15px;
-  background: rgb(110, 110, 130);
-  color: white;
-  border-bottom: 5px rgb(62, 63, 73) solid;
-  border-radius: 10px;
+  margin-top: 80px;
+  padding-right: 40px;
+  /*background: rgb(45, 63, 79);*/
+  /*color: white;*/
 }
 
 h1 {
@@ -80,6 +78,8 @@ img {
 
 main {
   display: flex;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 a {
@@ -87,6 +87,7 @@ a {
   color: black;
   font-weight: bold;
   font-size: 35px;
+  cursor: pointer;
 }
 
 nav > a {
@@ -99,28 +100,26 @@ nav > a {
   margin: 30px;
 }
 
+.panel {
+  background: rgb(220,220,220);
+  position: absolute;
+  right: 10px;
+  margin-top: 15px;
+  border: 1px solid rgb(190,190,190);
+  border-top: none;
+  color: black;
+}
+
 #instructions-panel {
   display: none;
   width: 500px;
   height: 150px;
-  background: white;
-  position: relative;
-  float: right;
-  margin: 15px 0 0 1000px;
-  border: 2px black solid;
-  /*border-radius: 8px;*/
-  color: black;
 }
 
 #categories-panel {
   display: none;
   height: 200px;
   width: 150px;
-  background: white;
-  position: relative;
-  float: right;
-  margin: 15px 0 0 1000px;
-  border: 2px black solid;
 }
 
 #categories-panel > a {
@@ -149,18 +148,18 @@ nav > a {
   width: 85px;
   float: left;
   background: rgb(227, 252, 237);
-  border: 2px solid black;
+  border: 1px solid rgb(197, 222, 207);
   border-radius: 8px;
   padding: 10px;
   display: inline-block;
 }
 
 #cumulative-score {
-  margin: 10px 0 0 10px;
+  margin: 10px 0 0 15px;
   height: 50px;
   width: 155px;
-  background: rgb(206, 206, 206);
-  border: 2px solid black;
+  background: rgb(220,220,220);
+  border: 1px solid rgb(190,190,190);
   border-radius: 8px;
   padding: 10px;
   display: inline-block;
