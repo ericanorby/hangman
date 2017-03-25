@@ -185,7 +185,6 @@ $("#categories-panel > a").click(startGame)
 
 function startGame(){
   reset();
-  //create variable to pick a random number from 0-15
   var random = Math.floor(Math.random() * 15);
   chosen = $(this).html()
   var addCategory = $(".notification").append("<p></p>")
